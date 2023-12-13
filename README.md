@@ -26,29 +26,63 @@ A full subtractor is a combinational circuit that performs subtraction involving
 Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 ## Procedure
+1.Use module projname(input,output) to start the Verilog programmming.
 
+2.Assign inputs and outputs using the word input and output respectively.
 
+3.Use defined keywords like wire,assign and required logic gates to represent the boolean expression.
 
-Write the detailed procedure here 
+4.Use each output to represnt onre for differnce and the other for borrow.
 
+5.End the verilog program using keyword endmodule
 
 ## Program:
-/*
-Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+~~~
+Half subtracter:
+module hs(a,b,borrow,diff);
+input a,b;
+output diff,borrow;
+assign diff=a^b;
+assign borrow=~a&b;
+endmodule
 
-## Output:
+Full subtracter:
+module hs(a,b,bin,borrow,diff);
+input a,b,bin;
+output diff,borrow;
+assign diff=(a^b)^bin;
+assign borrow=((~a)&&bin)||(b&&bin)||((~a)&&b);
+endmodule
+Developed by: Monika D
+RegisterNumber: 23013746  
+~~~
 
-## Truthtable
+## Truthtable:
+Half subtracter:
 
+![Screenshot 2023-12-13 030023](https://github.com/dhanamoni/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/151629757/80038736-b5a3-44dd-9e3f-b7300e4ad063)
 
+Full subtracter:
 
-##  RTL realization
+![Screenshot 2023-12-13 030213](https://github.com/dhanamoni/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/151629757/ea1ca408-47a4-425a-bb38-0afdf7abb337)
 
+##  RTL realization:
+Half subtracter:
+
+![Screenshot 2023-12-13 030325](https://github.com/dhanamoni/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/151629757/8227fcbc-bdd0-4f58-b14a-3e7be917e278)
+
+Full subtracter:
+
+![Screenshot 2023-12-13 030415](https://github.com/dhanamoni/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/151629757/6383f18e-b981-4720-b669-9c255c19187d)
 
 ## Timing diagram 
+Half subtracter:
+
+![Screenshot 2023-12-13 030615](https://github.com/dhanamoni/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/151629757/98773645-2dad-4d7b-99af-5e658a8741b1)
+
+Full subtracter:
+
+![Screenshot 2023-12-13 030847](https://github.com/dhanamoni/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/151629757/04224351-b9d6-4f5b-b761-212b35b87045)
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
